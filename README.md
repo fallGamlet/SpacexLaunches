@@ -6,6 +6,7 @@ android application for display rocket launches of SpaceX
 Create an application which display last launches list, from open source API :
 - https://github.com/r-spacex/SpaceX-API
 - https://api.spacexdata.com/v4/launches
+
 App contains 2 screens: Launch List and Launch Details screen. 
 And for advantage add Favorites list.
 
