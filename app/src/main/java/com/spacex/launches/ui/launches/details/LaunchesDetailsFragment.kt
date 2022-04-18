@@ -37,7 +37,7 @@ class LaunchesDetailsFragment :
     private var loadingView: View? = null
     private var youTubePlayer: YouTubePlayer? = null
     private var youTubePlayerVideoPrepared: Boolean = false
-    private var viewState: LaunchDetailsViewState = LaunchDetailsViewState.Idle()
+    private var viewState: LaunchDetailsViewState = LaunchDetailsViewState.Loading()
     private val numberFormatter = DecimalFormat("#,###,###,###.##")
     private val dateFormatter =
         SimpleDateFormat("EEE, dd MMMM yyyy", Locale.getDefault())
@@ -64,14 +64,15 @@ class LaunchesDetailsFragment :
     private fun updateState(state: LaunchDetailsViewState) {
         viewState = state
         refreshData()
-        loadingView?.isVisible = false
         when (state) {
-            is LaunchDetailsViewState.Idle -> { }
             is LaunchDetailsViewState.Loading -> {
                 loadingView?.isVisible = true
             }
-            is LaunchDetailsViewState.Success -> { }
+            is LaunchDetailsViewState.Success -> {
+                loadingView?.isVisible = false
+            }
             is LaunchDetailsViewState.Error -> {
+                loadingView?.isVisible = false
                 Snackbar.make(
                     requireView(),
                     state.exception.message ?: "Error",

@@ -7,8 +7,6 @@ sealed class LaunchDetailsViewState(
     val data: DetailsItem
 ) {
 
-    class Idle : LaunchDetailsViewState(EMPTY_DATA)
-
     class Loading(
         data: DetailsItem = EMPTY_DATA
     ): LaunchDetailsViewState(data)

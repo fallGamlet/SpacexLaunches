@@ -14,7 +14,7 @@ class LaunchesDetailsViewModel(
 ) : ViewModel() {
 
     private var _viewState =
-        MutableStateFlow<LaunchDetailsViewState>(LaunchDetailsViewState.Idle())
+        MutableStateFlow<LaunchDetailsViewState>(LaunchDetailsViewState.Loading())
     val viewState: StateFlow<LaunchDetailsViewState> = _viewState
 
 
