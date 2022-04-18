@@ -1,0 +1,11 @@
+<resources>
+    <dimen name="space_tiny">4dp</dimen>
+    <dimen name="space_small">8dp</dimen>
+    <dimen name="space_normal">12dp</dimen>
+    <dimen name="space_base">16dp</dimen>
+    <dimen name="space_large">32dp</dimen>
+
+    <dimen name="icon_base">24dp</dimen>
+    <dimen name="icon_medium">36dp</dimen>
+    <dimen name="icon_large">48dp</dimen>
+</resources>
