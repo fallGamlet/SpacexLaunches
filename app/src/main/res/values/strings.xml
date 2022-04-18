@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SpacexLaunches</string>
+
+    <string name="payload_mass_kg_template">%s kg of payload</string>
+    <string name="no_data">Has no data</string>
+    <string name="open_wikipedia">Open wikipedia</string>
 </resources>
