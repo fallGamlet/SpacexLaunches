@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                android:id="@+id/youtubePlayerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:autoPlay="false"
+                app:layout_constraintDimensionRatio="H,4:3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="#aaa"
+                tools:visibility="visible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/favoriteView"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="@dimen/icon_large"
+                android:layout_height="@dimen/icon_large"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:checkable="true"
+                android:contentDescription="@null"
+                android:gravity="center"
+                app:icon="@drawable/selector_favorite"
+                app:iconSize="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/youtubePlayerView"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/titleView"
+                style="@style/Widget.AppCompat.TextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_base"
+                android:layout_marginTop="@dimen/space_base"
+                android:layout_marginEnd="@dimen/space_base"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                app:layout_constraintEnd_toStartOf="@id/favoriteView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/youtubePlayerView"
+                tools:text="Launch title text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/dateView"
+                style="@style/Widget.AppCompat.TextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_base"
+                android:layout_marginTop="@dimen/space_tiny"
+                android:layout_marginEnd="@dimen/space_base"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                app:layout_constraintEnd_toStartOf="@id/favoriteView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleView"
+                tools:text="2021-05-21 14:30" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/rocketView"
+                style="@style/Widget.AppCompat.TextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_base"
+                android:layout_marginTop="@dimen/space_tiny"
+                android:layout_marginEnd="@dimen/space_base"
+                android:gravity="end"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                app:layout_constraintEnd_toStartOf="@id/favoriteView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dateView"
+                tools:text="Rocket name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/payloadView"
+                style="@style/Widget.AppCompat.TextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_base"
+                android:layout_marginTop="@dimen/space_tiny"
+                android:layout_marginEnd="@dimen/space_base"
+                android:gravity="end"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                app:layout_constraintEnd_toStartOf="@id/favoriteView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rocketView"
+                tools:text="Payload mass 465 kg" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/wikipediaLinkView"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/space_base"
+                android:layout_marginTop="@dimen/space_small"
+                android:layout_marginEnd="@dimen/space_base"
+                android:text="Open Wikipedia"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                app:layout_constraintBottom_toTopOf="@id/descriptionView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/payloadView"
+                app:layout_goneMarginBottom="@dimen/space_base" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/descriptionView"
+                style="@style/Widget.AppCompat.TextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_base"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wikipediaLinkView"
+                tools:text="Launch description text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/loadingView"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="@dimen/icon_medium"
+        android:layout_height="@dimen/icon_medium"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_margin="@dimen/space_large" />
+
+</FrameLayout>
