@@ -11,7 +11,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/space_base">
 
             <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                 android:id="@+id/youtubePlayerView"
@@ -111,7 +112,7 @@
                 android:layout_marginStart="@dimen/space_base"
                 android:layout_marginTop="@dimen/space_small"
                 android:layout_marginEnd="@dimen/space_base"
-                android:text="Open Wikipedia"
+                android:text="@string/open_wikipedia"
                 android:textAllCaps="false"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                 app:layout_constraintBottom_toTopOf="@id/descriptionView"

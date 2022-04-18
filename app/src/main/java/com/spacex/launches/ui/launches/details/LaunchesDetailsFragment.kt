@@ -18,6 +18,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 import com.spacex.launches.R
 import com.spacex.launches.getRepositoryProvider
 import com.spacex.launches.openUrl
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,6 +38,7 @@ class LaunchesDetailsFragment :
     private var youTubePlayer: YouTubePlayer? = null
     private var youTubePlayerVideoPrepared: Boolean = false
     private var viewState: LaunchDetailsViewState = LaunchDetailsViewState.Idle()
+    private val numberFormatter = DecimalFormat("#,###,###,###.##")
     private val dateFormatter =
         SimpleDateFormat("EEE, dd MMMM yyyy", Locale.getDefault())
 
@@ -81,6 +83,7 @@ class LaunchesDetailsFragment :
 
     private fun refreshData() {
         val data = viewState.data
+        val payloadValueText = numberFormatter.format(data.payloadMass.toFloat())
 
         titleView?.text = data.title
 
@@ -90,7 +93,7 @@ class LaunchesDetailsFragment :
         rocketView?.text = data.rocketName
         rocketView?.isVisible = data.rocketName.isNotBlank()
 
-        payloadView?.text = "Payload mass ${data.payloadMass} Kg"
+        payloadView?.text = getString(R.string.payload_mass_kg_template, payloadValueText)
         payloadView?.isVisible = data.payloadMass.toFloat() > 0f
 
         wikipediaLinkView?.isVisible = data.wikipediaUrl.isNotBlank()
