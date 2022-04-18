@@ -7,8 +7,6 @@ sealed class LaunchPreviewsViewState(
     val items: List<PreviewItem> = emptyList()
 ) {
 
-    class Idle : LaunchPreviewsViewState()
-
     class Loading(
         items: List<PreviewItem> = emptyList()
     ): LaunchPreviewsViewState(items)

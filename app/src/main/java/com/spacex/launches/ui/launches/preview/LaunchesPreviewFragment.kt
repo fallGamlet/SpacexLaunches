@@ -24,7 +24,7 @@ class LaunchesPreviewFragment : Fragment() {
     private var emptyView: View? = null
     private var errorView: TextView? = null
     private var loadingView: View? = null
-    private var viewState: LaunchPreviewsViewState = LaunchPreviewsViewState.Idle()
+    private var viewState: LaunchPreviewsViewState = LaunchPreviewsViewState.Loading()
     private val dateFormatter =
         SimpleDateFormat("EEE, dd MMMM yyyy", Locale.getDefault())
 
@@ -45,22 +45,28 @@ class LaunchesPreviewFragment : Fragment() {
     }
 
     private fun updateState(state: LaunchPreviewsViewState) {
+        //TODO make to use DiffUtils
         if (viewState.items != state.items) {
             recyclerView?.adapter?.notifyDataSetChanged()
         }
 
         viewState = state
-        emptyView?.isVisible = false
-        loadingView?.isVisible = false
-        errorView?.isVisible = false
+
         when (state) {
-            is LaunchPreviewsViewState.Idle -> { }
             is LaunchPreviewsViewState.Loading -> {
                 loadingView?.isVisible = true
+                emptyView?.isVisible = false
+                errorView?.isVisible = false
             }
-            is LaunchPreviewsViewState.Success -> { }
+            is LaunchPreviewsViewState.Success -> {
+                loadingView?.isVisible = false
+                emptyView?.isVisible = false
+                errorView?.isVisible = false
+            }
             is LaunchPreviewsViewState.Error -> {
                 val hasData = state.items.isNotEmpty()
+                loadingView?.isVisible = false
+                emptyView?.isVisible = false
                 errorView?.isVisible = !hasData
                 if (hasData) {
                     Snackbar.make(

@@ -15,7 +15,7 @@ class LaunchesPreviewViewModel(
 ) : ViewModel() {
 
     private var _viewState =
-        MutableStateFlow<LaunchPreviewsViewState>(LaunchPreviewsViewState.Idle())
+        MutableStateFlow<LaunchPreviewsViewState>(LaunchPreviewsViewState.Loading())
     val viewState: StateFlow<LaunchPreviewsViewState> = _viewState
 
     fun loadData() {
