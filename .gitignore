@@ -15,6 +15,7 @@
 .cxx
 local.properties
 
+*.jks
 
 # files for the dex VM
 *.dex
